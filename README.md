@@ -25,7 +25,14 @@ Aku baca dulu kedua file kode-nya sebelum membandingkan dengan dua PDF.Aku sudah
 4. **Klasifikasi scalp vs swing memakai lebar SL.** Eliz membedakannya dari timeframe dan lama hold. Kalau dipertahankan, tandai sebagai tafsiran.
 5. **Sweep di tengah range masih lolos.** Filter `keep` hanya membuang `bo`, `zone`, dan `wolf` di tengah range. Mungkin perlu membuang semua sinyal di tengah kecuali sweep yang benar-benar di tepi.
 
-6. Sebelum mulai: kita berurusan dengan 21 post bertanggal. Aku baca dulu panduan UI karena akan menambah tab di `index.html`, lalu cek apakah sandbox bisa mengakses Binance.Tab baru akan mengikuti gaya yang sudah ada. Sekarang cek lingkungan.Sandbox tidak bisa menjangkau Binance, jadi uji dengan data asli harus jalan di browser atau komputer kamu. Aku bangun pipeline-nya dan verifikasi logikanya dengan data sintetis. Pertama dataset-nya.Sekarang mesin ujinya. Engine hanya diberi data sampai detik post, dan candle terakhir dibangun ulang dari data 15 menit supaya tidak ada kebocoran masa depan.Dataset uji dan alat ujinya sudah jadi, tapi aku belum menjalankannya dengan data Binance asli karena sandbox-ku tidak bisa menjangkau Binance. Aku hanya mengujinya dengan data sintetis. Hasilnya membuktikan kodenya jalan dan tidak crash, bukan bahwa engine valid.
+Catatan soal sumber
+
+PDF 2 adalah hasil scraping oleh Grok, bukan post asli. Kutipan dengan tanggal di dalamnya belum bisa diverifikasi, dan Grok sering mengarang detail seperti ini. Sebaiknya jangan pakai kutipan PDF 2 sebagai label sumber sampai dicek ke post aslinya. PDF 1 lebih bisa dipercaya karena berisi screenshot post, tapi hasilnya tetap klaim sepihak. Misalnya ROI +257% di screenshot Bybit adalah ROI dengan leverage 10x, bukan pergerakan harga. Jurnal sebaiknya memisahkan persentase harga spot, ROI leverage, dan keuntungan yang belum terealisasi (seperti “1M profit TAO”).
+
+Mau mulai dari yang mana? Aku bisa (a) merevisi label di tab Strategi, (b) menambahkan frame 1W dan flag volume/absorption ke engine, atau (c) menyusun dataset uji dari PDF 1 supaya kita bisa mengecek apakah engine menemukan setup yang sama dengan post Eliz.
+_______________________________________________________________________
+
+Sebelum mulai: kita berurusan dengan 21 post bertanggal. Aku baca dulu panduan UI karena akan menambah tab di `index.html`, lalu cek apakah sandbox bisa mengakses Binance.Tab baru akan mengikuti gaya yang sudah ada. Sekarang cek lingkungan.Sandbox tidak bisa menjangkau Binance, jadi uji dengan data asli harus jalan di browser atau komputer kamu. Aku bangun pipeline-nya dan verifikasi logikanya dengan data sintetis. Pertama dataset-nya.Sekarang mesin ujinya. Engine hanya diberi data sampai detik post, dan candle terakhir dibangun ulang dari data 15 menit supaya tidak ada kebocoran masa depan.Dataset uji dan alat ujinya sudah jadi, tapi aku belum menjalankannya dengan data Binance asli karena sandbox-ku tidak bisa menjangkau Binance. Aku hanya mengujinya dengan data sintetis. Hasilnya membuktikan kodenya jalan dan tidak crash, bukan bahwa engine valid.
 
 ## Cara menjalankan
 
@@ -70,8 +77,4 @@ Kalau hasil aslinya mendukung dugaan itu, perbaikannya adalah menambah frame ran
 
 Satu keterbatasan lagi: 21 post terlalu sedikit untuk kesimpulan statistik. Dataset ini berguna untuk menemukan perbedaan konsep, bukan untuk membuktikan edge. Pembuktian itu butuh backtest engine di seluruh riwayat, dan itu tahap berikutnya.
 
-**Catatan soal sumber**
 
-PDF 2 adalah hasil scraping oleh Grok, bukan post asli. Kutipan dengan tanggal di dalamnya belum bisa diverifikasi, dan Grok sering mengarang detail seperti ini. Sebaiknya jangan pakai kutipan PDF 2 sebagai label sumber sampai dicek ke post aslinya. PDF 1 lebih bisa dipercaya karena berisi screenshot post, tapi hasilnya tetap klaim sepihak. Misalnya ROI +257% di screenshot Bybit adalah ROI dengan leverage 10x, bukan pergerakan harga. Jurnal sebaiknya memisahkan persentase harga spot, ROI leverage, dan keuntungan yang belum terealisasi (seperti "1M profit TAO").
-
-Mau mulai dari yang mana? Aku bisa (a) merevisi label di tab Strategi, (b) menambahkan frame 1W dan flag volume/absorption ke engine, atau (c) menyusun dataset uji dari PDF 1 supaya kita bisa mengecek apakah engine menemukan setup yang sama dengan post Eliz.
